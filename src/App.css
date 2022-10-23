@@ -1,32 +1,126 @@
-.App {
+.linkStyle {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+  margin-right: 20px;
+}
+
+.align-to-right {
+  float: right;
+  letter-spacing: 0.5px;
+}
+
+.menu__list, .nav-dropdown, .nav-menu, ul {
+  list-style: none;
+}
+
+.carousel-caption {
+  top: 20% !important;
+  left: 10% !important; 
+}
+
+.carousel-caption h1 {
+  color: #000;
+  font-weight: 600;
+  font-size: 4rem;
+  margin-top: 10px;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: rgb(48, 47, 47);
+}
+
+.Component-heading{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  position: relative;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.fade-title {
+  font-style: italic;
+  font-weight: 800;
+  opacity: 0.11;
+  font-size: 50px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.catagory-img{
+    height: 100px;
+    border-radius: 50%;
+    padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* product style */
+.ab-left {
+  left: 0.7rem;
+  right: auto;
+  z-index: 1;
+  top: 0.7rem;
 }
 
-.App-link {
-  color: #61dafb;
+.position-relative {
+  position: relative;
 }
+
+
+
+
+
+
+/* footer style  */
+
+.footer{
+  background-color: #252525;
+  color: #a7a7a7;
+  transition: all ease 0.4s;
+  font-size: 15px;
+}
+
+.footer_widget {
+  padding: 60px 0 40px;
+}
+
+img.img-footer {
+  margin: 0;
+  max-width: 160px;
+  position: relative;
+  top: 2px;
+}
+
+h4.widget_title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer_widget ul {
+  padding: 0;
+  margin: 0;
+}
+
+.footer_widget ul li {
+  list-style: none;
+  margin-top: 10px;
+  /* display: block; */
+}
+
+
+
+
+
+
+
+
+
 
 @keyframes App-logo-spin {
   from {
