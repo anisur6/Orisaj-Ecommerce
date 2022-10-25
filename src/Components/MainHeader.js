@@ -1,7 +1,8 @@
 import React from 'react';
-import { Nav, Navbar, Container } from 'react-bootstrap';
+import { Nav, Navbar, Container, Button } from 'react-bootstrap';
 import logo from './../img/Black-Orisaz.png'
-import {FaAngleDown , FaSearch, FaRegUserCircle, FaRegHeart, FaShoppingCart} from 'react-icons/fa';
+import {FaAngleDown , FaSearch, FaRegUserCircle, FaShoppingCart} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,7 +13,7 @@ const MainHeader = () => {
       <Navbar text="dark" expand="lg">
                 <Container fluid>
 
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/">
                         <img
                             src={logo}
                             width="auto"
@@ -28,11 +29,14 @@ const MainHeader = () => {
                         <Nav className="me-auto my-2  me-3 my-lg-0"
                             style={{ maxHeight: '100px' }}
                             navbarScroll>
-                            <a href='#' className="linkStyle" to="/home">Home</a>
-                            <a href='#' className="linkStyle" to="/home">Shop</a>
-                            <a href='#' className="linkStyle" to="/about">Catagory <FaAngleDown/></a>
-                            <a href='#' className="linkStyle" to="/products">About</a>
-                            <a href='#' className="linkStyle" to="/dashboard">DashBoard</a> 
+                            <Link to="/" className='linkStyle'>Home</Link>
+                            <Link to="/product" className='linkStyle'>Shop</Link>
+                            <Link to="/product" className='linkStyle'>Catagory <FaAngleDown/></Link>
+                            <Link to="/about" className='linkStyle'>About</Link>
+                            <Link to="/productDetail" className='linkStyle'>singleProduct</Link>
+                            <Link to="/" className='linkStyle'>Dashboard</Link>
+                            
+                            
                         </Nav>
                         <div className="d-flex">
                         <ul className="d-flex justify-content-between mb-0">
@@ -42,12 +46,17 @@ const MainHeader = () => {
 								<li className='mx-3 fs-6'>
 									<FaRegUserCircle />
 								</li>
-								<li className='mx-3 fs-6'>
-									<FaRegHeart />
-								</li>
+								
 								<li className='mx-3 fs-6'>
 									<FaShoppingCart />
 								</li>
+                                <li>
+                                <Link to="/register" className='shadow p-2 linkStyle ms-2'>
+                                        Login/ Register
+                                    </Link>
+                                </li>
+                                    
+                              
 							</ul>
                             
                         </div>

@@ -70,6 +70,40 @@
 }
 
 
+/* single product style  */
+.nav-pills .nav-link{
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: rgb(32, 124, 9) !important;
+  background-color: white !important;
+  box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.75) !important;
+}
+
+
+/* testemonial style  */
+
+.testemonial-container{
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.testemonial .carousel-indicators {
+  display: none !important;
+}
+
+.testemonial-img{
+  height: 70px;
+  margin-bottom: 10px;
+  width: auto;
+}
 
 
 

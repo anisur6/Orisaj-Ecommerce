@@ -1,5 +1,4 @@
 import React from 'react';
-import Caurosel from './Caurosel';
 import MainHeader from './MainHeader';
 import SubHeader from './SubHeader';
 
@@ -8,7 +7,7 @@ const Header = () => {
         <>
             <SubHeader/>
             <MainHeader/>
-            <Caurosel/>
+            
         </>
     );
 };
