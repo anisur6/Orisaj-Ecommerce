@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import banner2 from './../img/banner-2.png'
-import banner3 from './../img/banner-3.png'
+import banner3 from './../img/banner-3.jpg'
 
 const Caurosel = () => {
     return (
@@ -15,10 +15,10 @@ const Caurosel = () => {
                 />
                 <Carousel.Caption>
                     <div className='text-start'>
-                    <span className='text-danger text-uppercase d-block'>Summer Collection</span>
+                    <span className='span-size  text-danger text-uppercase d-block '>Summer Collection</span>
                     <h1>2022 new <br /> Summer collection</h1>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    <button type='button' className='btn btn-outline-secondary mt-3 px-5'>Shop Now</button>
+                    <button type='button' className='btn btn-outline-secondary mt-3 px-5 responsive-btn'>Shop Now</button>
 
                     </div>
                 </Carousel.Caption>
@@ -31,10 +31,10 @@ const Caurosel = () => {
                 />
                 <Carousel.Caption>
                     <div className='text-start'>
-                    <span className='text-danger text-uppercase d-block'>Summer Collection</span>
+                    <span className='span-size text-danger text-uppercase d-block'>Summer Collection</span>
                     <h1>2022 new <br /> Summer collection</h1>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    <button type='button' className='btn btn-outline-secondary mt-3 px-5'>Shop Now</button>
+                    <button type='button' className='btn btn-outline-secondary mt-3 px-5 responsive-btn'>Shop Now</button>
 
                     </div>
                 </Carousel.Caption>
@@ -47,10 +47,10 @@ const Caurosel = () => {
                 />
                 <Carousel.Caption>
                     <div className='text-start'>
-                    <span className='text-danger text-uppercase d-block'>Summer Collection</span>
+                    <span className='span-size text-danger text-uppercase d-block'>Summer Collection</span>
                     <h1>2022 new <br /> Summer collection</h1>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    <button type='button' className='btn btn-outline-secondary mt-3 px-5'>Shop Now</button>
+                    <button type='button' className='btn btn-outline-secondary mt-3 px-5 responsive-btn'>Shop Now</button>
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>

@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "productName": "Men's High Quality T-shirt",
+      "productImage" : "",
+      "price": "400",
+      "catagory" : "man",
+      "code": "SK1250",
+      "rating": "4",
+      "size": "4",
+      "status": "1",
+      "description" : "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident",
+      "additionalInfo" : "Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident",
+      "quantity": "100",
+      "website": "hildegard.org"
+    }
+  ]

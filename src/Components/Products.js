@@ -12,10 +12,10 @@ const Products = () => {
         <>
         <Heading bgText="Orisaj Products" mainText="Sample Products" />
 
-        <Container className='mb-5'>
+        <Container className='mb-5 shop-product'>
         
         <Row>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -26,7 +26,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>
@@ -42,7 +42,7 @@ const Products = () => {
             </div>
         </div>
             </Col>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -53,7 +53,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>
@@ -69,7 +69,7 @@ const Products = () => {
             </div>
         </div>
             </Col>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -80,7 +80,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>
@@ -96,7 +96,7 @@ const Products = () => {
             </div>
         </div>
             </Col>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -107,7 +107,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>
@@ -123,7 +123,7 @@ const Products = () => {
             </div>
         </div>
             </Col>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -134,7 +134,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>
@@ -150,7 +150,7 @@ const Products = () => {
             </div>
         </div>
             </Col>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -161,7 +161,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>
@@ -177,7 +177,7 @@ const Products = () => {
             </div>
         </div>
             </Col>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -188,7 +188,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>
@@ -204,7 +204,7 @@ const Products = () => {
             </div>
         </div>
             </Col>
-            <Col md={3} className='text-center my-4'>
+            <Col md={3} xs={6} className='text-center my-4'>
             <div class="card border-0 rounded-0">
             <div class="badge bg-info text-white position-absolute ft-regular ab-left text-upper">Sale</div>
             <div class="card-body p-0">
@@ -215,7 +215,7 @@ const Products = () => {
             </div>
             <div class="card-footer p-0 pt-2 bg-white d-flex align-items-start justify-content-between">
                 <div class="text-start">
-                    <div class="text-start">
+                    <div class="card-body-contant text-start">
                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                             <FaStar className='text-warning me-1'/>
                             <FaStar className='text-warning me-1'/>

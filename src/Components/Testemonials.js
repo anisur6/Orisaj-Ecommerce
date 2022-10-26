@@ -21,10 +21,10 @@ const Testemonials = () => {
                 <FaStar className='text-warning me-1'/>
                 <FaStarHalf className='text-warning me-1'/>
                 </span>
-                <p className=''>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eius magnam neque? Nemo ipsa, incidunt, assumenda sit corrupti ut quam tempore numquam officiis nulla odio deserunt. Eum, quos tenetur delectus maxime aliquid amet quod aliquam maiores rem. Atque, harum doloribus.</p>
+                <p className='Review-text'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eius magnam neque? Nemo ipsa, incidunt, assumenda sit corrupti ut quam tempore numquam officiis nulla odio deserunt. Eum, quos tenetur delectus maxime aliquid amet quod aliquam maiores rem. Atque, harum doloribus.</p>
                 
                 <h3>Makik Star</h3>
-                <p>Registered Customer</p>
+                <p className='Review-text'>Registered Customer</p>
                 </div>
             </Carousel.Item>
             <Carousel.Item>
@@ -37,9 +37,9 @@ const Testemonials = () => {
                 <FaStar className='text-warning me-1'/>
                 <FaStarHalf className='text-warning me-1'/>
                 </span>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eius magnam neque? Nemo ipsa, incidunt, assumenda sit corrupti ut quam tempore numquam officiis nulla odio deserunt. Eum, quos tenetur delectus maxime aliquid amet quod aliquam maiores rem. Atque, harum doloribus.</p>
+                <p className='Review-text'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eius magnam neque? Nemo ipsa, incidunt, assumenda sit corrupti ut quam tempore numquam officiis nulla odio deserunt. Eum, quos tenetur delectus maxime aliquid amet quod aliquam maiores rem. Atque, harum doloribus.</p>
                 <h3>Makik Star</h3>
-                <p>Registered Customer</p>
+                <p className='Review-text'>Registered Customer</p>
                 </div>
             </Carousel.Item>
             <Carousel.Item>
@@ -52,9 +52,9 @@ const Testemonials = () => {
                 <FaStar className='text-warning me-1'/>
                 <FaStarHalf className='text-warning me-1'/>
                 </span>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eius magnam neque? Nemo ipsa, incidunt, assumenda sit corrupti ut quam tempore numquam officiis nulla odio deserunt. Eum, quos tenetur delectus maxime aliquid amet quod aliquam maiores rem. Atque, harum doloribus.</p>
+                <p className='Review-text'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eius magnam neque? Nemo ipsa, incidunt, assumenda sit corrupti ut quam tempore numquam officiis nulla odio deserunt. Eum, quos tenetur delectus maxime aliquid amet quod aliquam maiores rem. Atque, harum doloribus.</p>
                 <h3>Makik Star</h3>
-                <p>Registered Customer</p>
+                <p className='Review-text'>Registered Customer</p>
                 </div>
             </Carousel.Item>
             </Carousel>

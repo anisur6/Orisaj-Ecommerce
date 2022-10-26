@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import './responsive.css';
 import AboutUs from './Components/AboutUs';
 import Footer from './Components/Footer';
 import Header from './Components/Header';

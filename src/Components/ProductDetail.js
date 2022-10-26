@@ -8,8 +8,8 @@ import {FiShoppingCart, FiShoppingBag} from 'react-icons/fi';
 const ProductDetail = () => {
     return (
         <>
-        <Container className='py-5'>
-            <div className='pt-3 pb-2 fs-5'>
+        <Container className='py-5 '>
+            <div className='pt-3 pb-2 breadcamb-font'>
             <Breadcrumb>
             <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
             <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
@@ -21,12 +21,12 @@ const ProductDetail = () => {
 
             <Row>
                 <Col md={6}>
-                    <div className=''>
+                    <div className='my-2'>
                         <img src={demoImg} className="img-fluid" alt="product-img" />
                     </div>
                 </Col>
                 <Col md={6}>
-                    <div>
+                    <div className='my-2'>
                         <Badge bg="info" pill className='p-2' >Hot Sale</Badge>
                         <h4 className='fw-bold mt-2'>Man's High Quality T-Shirt</h4>
                         <span>
@@ -54,8 +54,8 @@ const ProductDetail = () => {
                             </select>
                         </div>
                         <div className='d-flex my-4'>
-                            <Button className="btn btn-warning border-0 rounded-1 px-5 me-2">Buy Now <FiShoppingBag className="ms-2" /></Button>
-                            <Button className="btn btn-dark border-0 rounded-1 px-5"> Add To Cart <FiShoppingCart className='ms-2' /></Button>
+                            <Button className="btn btn-warning border-0 rounded-1 px-5 me-2 parcase-btn d-block">Buy Now <FiShoppingBag className="ms-1 product-icon" /></Button>
+                            <Button className="btn btn-dark border-0 rounded-1 px-5 parcase-btn"> Add To Cart <FiShoppingCart className='ms-1 product-icon' /></Button>
                         </div>
 
                     </div>
@@ -80,12 +80,12 @@ const ProductDetail = () => {
         <Col sm={9} className="border-start border-2">
           <Tab.Content>
             <Tab.Pane eventKey="first">
-              <p className='fs-5 text-muted '>Lorem ipsum dolor sit amet consectetur adipisicing elit. At labore nulla id saepe repellat quae nostrum numquam non ratione, nderit cum odit natus nemo et quis adipisci est illum. Itaque nobis alias ad earum ea excepturi ullam ipsum similique, necessitatibus debitis voluptate.</p>
-              <p className='fs-5 text-muted '>Lorem ipsum dolor sitnimi nihil corporis veritatis reprehenderit cum odit natus nemo et quis adipisci est illum. Itaque nobis alias ad earum ea excepturi ullam ipsum similique, necessitatibus debitis voluptate.</p>
+              <p className='product-text text-muted '>Lorem ipsum dolor sit amet consectetur adipisicing elit. At labore nulla id saepe repellat quae nostrum numquam non ratione, nderit cum odit natus nemo et quis adipisci est illum. Itaque nobis alias ad earum ea excepturi ullam ipsum similique, necessitatibus debitis voluptate.</p>
+              <p className='product-text text-muted '>Lorem ipsum dolor sitnimi nihil corporis veritatis reprehenderit cum odit natus nemo et quis adipisci est illum. Itaque nobis alias ad earum ea excepturi ullam ipsum similique, necessitatibus debitis voluptate.</p>
             </Tab.Pane>
             <Tab.Pane eventKey="second">
-              <p className='fs-5 text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam nemo temporibus alias vero nulla ex odit delectus sit dolor maxime.</p>
-              <p className='fs-5 text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam nemo temporibus alias vero nulla ex odit delectus sit dolor maxime.</p>
+              <p className='product-text text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam nemo temporibus alias vero nulla ex odit delectus sit dolor maxime.</p>
+              <p className='product-text text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam nemo temporibus alias vero nulla ex odit delectus sit dolor maxime.</p>
             </Tab.Pane>
           </Tab.Content>
         </Col>

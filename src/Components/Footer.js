@@ -10,7 +10,7 @@ const Footer = () => {
         <Container fluid className='footer py-1'>
             <Container>
                 <Row>
-                    <Col md={3}>
+                    <Col md={3} xs={12}>
                     <div class="footer_widget">
 						<img src={footerLogo} class="img-footer mb-2" alt="" />
 									
@@ -31,7 +31,7 @@ const Footer = () => {
 									</div>
 								</div>
                     </Col>
-                    <Col md={3}>
+                    <Col md={3} xs={6}>
                     <div class="footer_widget mt-3">
                         <h4 class="widget_title">Shop</h4>
                         <ul class="footer-menu">
@@ -43,7 +43,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     </Col>
-                    <Col md={3}>
+                    <Col md={3} xs={6}>
                     <div class="footer_widget mt-3">
                         <h4 class="widget_title">Company</h4>
                         <ul class="footer-menu">
@@ -55,7 +55,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     </Col>
-                    <Col md={3}>
+                    <Col md={3} xs={12}>
                     <div class="footer_widget mt-3">
 									<h4 class="widget_title">Subscribe</h4>
 									<p>Receive updates, hot deals, discounts sent straignt in your inbox daily</p>

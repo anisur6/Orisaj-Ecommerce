@@ -1,3 +1,7 @@
+/* header style  */
+
+
+
 .linkStyle {
   text-decoration: none;
   font-weight: 500;
@@ -40,15 +44,20 @@
   text-align: center;
 }
 
+
 .fade-title {
   font-style: italic;
   font-weight: 800;
   opacity: 0.11;
-  font-size: 50px;
+  font-size: 40px;
   position: absolute;
   top: 0;
   left: 50%;
   -webkit-transform: translate(-50%, 0%);
+}
+
+.heading-text{
+  padding-top: 18px !important;
 }
 
 .catagory-img{
@@ -84,6 +93,10 @@
   box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.75) !important;
+}
+
+.product-text{
+  font-size: 20px;
 }
 
 
@@ -148,19 +161,26 @@ h4.widget_title {
 }
 
 
-
-
-
-
-
-
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.social-authentication{
+  cursor: pointer;
 }
+
+.catagories{
+  text-align: center;
+  justify-content: space-around;
+}
+
+
+/* login style  */
+.login-width{
+  width: 75%;
+}
+
+/* about us style  */
+.breadcamb-font{
+  font-size: 20px;
+}
+
+
+
+

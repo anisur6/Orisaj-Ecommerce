@@ -1,12 +1,22 @@
 import React from 'react';
-import { Nav, Navbar, Container, Button } from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import logo from './../img/Black-Orisaz.png'
 import {FaAngleDown , FaSearch, FaRegUserCircle, FaShoppingCart} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
+import auth from '../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
+import { FaBars } from "react-icons/fa";
 
 
 const MainHeader = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+      };
+
     return (
         <>
       <Container fluid className='p-0'>
@@ -23,11 +33,12 @@ const MainHeader = () => {
                         />
                     </Navbar.Brand>
 
-                    <Navbar.Toggle className="border-0" aria-controls="navbarScroll" />
+                    
+                    <Navbar.Toggle   className="border-0"  aria-controls="navbarScroll" />
+                   
                     <Navbar.Collapse id="navbarScroll">
 
-                        <Nav className="me-auto my-2  me-3 my-lg-0"
-                            style={{ maxHeight: '100px' }}
+                        <Nav className="navigation-links me-auto my-2  me-3 my-lg-0"
                             navbarScroll>
                             <Link to="/" className='linkStyle'>Home</Link>
                             <Link to="/product" className='linkStyle'>Shop</Link>
@@ -38,23 +49,42 @@ const MainHeader = () => {
                             
                             
                         </Nav>
-                        <div className="d-flex">
+                        <div className="flex-element d-flex">
                         <ul className="d-flex justify-content-between mb-0">
 								<li className='mx-3 fs-6'>
 									<FaSearch />
 								</li>
-								<li className='mx-3 fs-6'>
+                               
+
+                                {
+                                    user ?
+                                    <li className='mx-3'>
+                                        <p className='text-success'>{user.displayName}</p>
+                                    </li>
+                                    : 
+                                    <li className='mx-3 fs-6'>
+									<FaShoppingCart />
+								    </li>
+                                }
+
+								<li className='mx-3 fs-6 d-none d-sm-none d-md-block'>
 									<FaRegUserCircle />
 								</li>
 								
-								<li className='mx-3 fs-6'>
-									<FaShoppingCart />
-								</li>
+								
+                                {
+                                user ? 
                                 <li>
-                                <Link to="/register" className='shadow p-2 linkStyle ms-2'>
-                                        Login/ Register
+                                    <Link onClick={logout} className='shadow px-3 py-1 linkStyle ms-2'>Sign Out</Link> 
+                                </li>
+                                  :  
+                                <li>    
+                                <Link to="/register" className='shadow px-3 py-1 linkStyle ms-2'>
+                                        Login/Register
                                     </Link>
                                 </li>
+            }
+                                
                                     
                               
 							</ul>
