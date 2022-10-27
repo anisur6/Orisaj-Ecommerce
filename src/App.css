@@ -176,9 +176,31 @@ h4.widget_title {
   width: 75%;
 }
 
+.Social-links{
+  font-size: 40px;
+}
+
 /* about us style  */
 .breadcamb-font{
   font-size: 20px;
+}
+
+
+/* dashboard style  */
+.dahs_navbar{
+  padding-left: 0px;
+}
+.dahs_navbar li{
+  padding: 15px;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+.dahs_navbar li a{
+  font-weight: 600;
+}
+
+.dahs_navbar  a:focus {
+  font-weight: 800 ;
+  color: green;
 }
 
 

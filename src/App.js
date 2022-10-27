@@ -10,6 +10,13 @@ import Login from './Components/Login';
 import ProductDetail from './Components/ProductDetail';
 import Products from './Components/Products';
 import Register from './Components/Register';
+import PrivateRoute from './Components/PrivateRoute';
+import Dashboard from './Components/Dashboard';
+import AddReview from './Components/AddReview';
+import MyOrder from './Components/MyOrder';
+import AllOrder from './Components/AllOrder';
+import UserProfile from './Components/UserProfile';
+import AddProduct from './Components/AddProduct';
 
 
 
@@ -30,9 +37,17 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/productDetail" element={<ProductDetail/>} />
+        <Route path="/productDetail" element={<PrivateRoute><ProductDetail/></PrivateRoute>} />
         <Route path="/about" element={<AboutUs/>} />
         <Route path="/product" element={<Products />} />
+        <Route path="/dashboard" element={<Dashboard/>}>
+          <Route path="addreview" element={<AddReview/>} />
+          <Route path="myorder" element={<MyOrder/>} />
+          <Route path="allorder" element={<AllOrder/>} />
+          <Route path="profile" element={<UserProfile/>} />
+          <Route path="addproduct" element={<AddProduct/>} />
+
+        </Route>
 
 
       </Routes>

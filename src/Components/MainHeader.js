@@ -45,7 +45,7 @@ const MainHeader = () => {
                             <Link to="/product" className='linkStyle'>Catagory <FaAngleDown/></Link>
                             <Link to="/about" className='linkStyle'>About</Link>
                             <Link to="/productDetail" className='linkStyle'>singleProduct</Link>
-                            <Link to="/" className='linkStyle'>Dashboard</Link>
+                            <Link to="/dashboard" className='linkStyle'>Dashboard</Link>
                             
                             
                         </Nav>
