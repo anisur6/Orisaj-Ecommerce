@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Breadcrumb, Col, Container, Row } from 'react-bootstrap';
 import { FaHome, FaRegHeart, FaRegUser, FaShoppingBasket } from 'react-icons/fa';
 import { MdOutlinePreview, MdRateReview } from "react-icons/md";
 import { GrAddCircle } from "react-icons/gr";
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { FiCreditCard, FiLogOut } from 'react-icons/fi';
 import AddReview from './AddReview';
 import AboutUs from './AboutUs';
@@ -11,9 +11,57 @@ import MyOrder from './MyOrder';
 import AllOrder from './AllOrder';
 import UserProfile from './UserProfile';
 import AddProduct from './AddProduct';
+import auth from '../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 
 const Dashboard = () => {
+
+    const [admin, setAdmin] = useState();
+
+
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate()
+
+
+
+
+
+
+
+
+    useEffect(() => {
+        const url = `http://localhost:5000/users/${user.email}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+
+
+
+
+
+    const logout = () => {
+        signOut(auth);
+      };
+
+      if(!user){
+        navigate('/');
+      }
+
+
+
+
+
+
+
+      
+
+      
+
+   
 
  
 
@@ -44,32 +92,46 @@ const Dashboard = () => {
                         <div class="dashboard_author pb-3">
                             <h6 class="px-3 py-3 mb-0 bg-light text-muted text-uppercase text-left">Manage Account</h6>
                             <ul class="dahs_navbar">
-                                <li>
+                                {
+                                    admin ?
+                                    <li>
                                 <Link className='linkStyle' to="allorder"><span><FaHome className='mb-1'/></span> Manage All Order</Link>
                                 </li>
+                                : ''
+
+                                }
+                                
                                 <li>
                                 <Link className='linkStyle ' to="myorder"><FaShoppingBasket className='mb-1'/> My Order</Link>
                                 </li>
+                                {
+                                    admin ?
+                                    <>
                                 <li>
                                 <Link className='linkStyle ' to="addproduct"><GrAddCircle className='mb-1'/> Add Product</Link>
-                                </li>
-                                {/* <li>
+                                </li> 
+                                 <li>
                                 <Link className='linkStyle' to="/user"> <MdOutlinePreview className='mb-1'/>   Manage Review</Link>
-                                </li> */}
-                                {/* <li>
+                                </li> 
+                                <li>
                                 <Link className='linkStyle' to="/user"><FaRegHeart className='mb-1'/>  Wishlist</Link>
-                                </li> */}
-                                {/* <li>
+                                </li>
+                                <li>
                                 <Link className='linkStyle' to="profile"><FaRegUser className='mb-1'/> Profile Info</Link>
-                                </li> */}
-                                {/* <li>
+                                </li>
+                                <li>
                                 <Link className='linkStyle' to="/user"><FiCreditCard className='mb-1'/> Payment Method</Link>
-                                </li> */}
+                                </li>
+                                </>
+                                : ''
+
+                                }
+                               
                                 <li>
                                 <Link className='linkStyle' to="addreview"><MdRateReview className='mb-1'/> Add Review</Link>
                                 </li>
                                 <li>
-                                <Link className='linkStyle' to="/user"><FiLogOut className='mb-1'/> Log Out</Link>
+                                <Link className='linkStyle' onClick={logout} ><FiLogOut className='mb-1'/> Log Out</Link>
                                 </li>
                         
                             </ul>

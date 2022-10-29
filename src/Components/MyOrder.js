@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 
 const MyOrder = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+
+    
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        const url = `http://localhost:5000/bookings?email=${user.email}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setOrders(data));
+    }, [])
+
+
     return (
         <>
             <Container>
@@ -18,27 +34,23 @@ const MyOrder = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td>1</td>
-                    <td><img src="https://i.ibb.co/VDqXGbC/p-2.jpg" style={{height: '40px'}} alt="demo" /></td>
-                    <td><p>man's best quality product </p></td>
-                    <td> <p><span>৳</span> 450</p></td>
-                    <td><p className='text-primary'>panding</p></td>
-                    </tr>
-                    <tr>
-                    <td>1</td>
-                    <td><img src="https://i.ibb.co/VDqXGbC/p-2.jpg" style={{height: '40px'}} alt="demo" /></td>
-                    <td><p>man's best quality product </p></td>
-                    <td> <p><span>৳</span> 450</p></td>
-                    <td><p className='text-primary'>panding</p></td>
-                    </tr>
-                    <tr>
-                    <td>1</td>
-                    <td><img src="https://i.ibb.co/VDqXGbC/p-2.jpg" style={{height: '40px'}} alt="demo" /></td>
-                    <td><p>man's best quality product </p></td>
-                    <td> <p><span>৳</span> 450</p></td>
-                    <td><p className='text-primary'>panding</p></td>
-                    </tr>
+                    {
+                        orders.map(order => {
+                            // const { _id, img, name, price } = order;
+
+                            return(
+                                <tr key={order.bookedProduct._id}>
+                                <td>{order.bookedProduct._id}</td>
+                                <td><img src={order.bookedProduct.productImage} style={{height: '40px'}} alt="demo" /></td>
+                                <td><p>{order.bookedProduct.productName}</p></td>
+                                <td> <p><span>৳</span> {order.bookedProduct.price}</p></td>
+                                <td><p className='text-primary'>panding</p></td>
+                                </tr>
+                            );
+                        })
+                    }
+                    
+                   
                 </tbody>
                 </Table>
 

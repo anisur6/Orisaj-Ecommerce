@@ -15,11 +15,11 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const [signInWithGoogle, User, Loading, Error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, User] = useSignInWithGoogle(auth);
    
 
    
-    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
       const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
@@ -48,9 +48,9 @@ const Register = () => {
     
         if(User){
             swal({
-                title: "registration SuccessFull",
+                title: "Registration SuccessFull",
                 icon: "success",
-                button: "Done",
+                button: "Ok",
               });
             navigate('/')
         }
@@ -61,14 +61,34 @@ const Register = () => {
         if(data.password !== data.password2){
             return alert('password not matched');   
         }
-        await createUserWithEmailAndPassword(data.name, data.email, data.password, data.password2);
+        await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName : data.name});
+
+        //send user to the database
+        saveUser(data.email, data.name, 'POST');
+
+
         swal({
             title: "registration SuccessFull",
             icon: "success",
             button: "Done",
           });
         navigate('/')
+    }
+
+
+
+    // saving user information 
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
     }
 
    

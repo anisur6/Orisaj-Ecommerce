@@ -1,11 +1,71 @@
-import React from 'react';
-import { Badge, Breadcrumb, Button, Col, Container, Row, Tab, Nav } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Badge, Breadcrumb, Button, Col, Container, Row, Tab, Nav, Modal } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { FaStar, FaStarHalf } from 'react-icons/fa';
-import demoImg from './../img/p-2.jpg'
 import {FiShoppingCart, FiShoppingBag} from 'react-icons/fi';
+import {useNavigate, useParams } from 'react-router-dom';
+import auth from '../firebase.init';
+import { useForm } from "react-hook-form";
+import swal from 'sweetalert';
+
 // import {FaShoppingBasket} from 'react-icons/fa';
 
 const ProductDetail = () => {
+  const {id} = useParams();
+
+  const [user] = useAuthState(auth);
+
+  const { register, handleSubmit, reset } = useForm();
+
+  const [product, setProduct] = useState({})
+
+
+  useEffect(() => {
+    const url = `http://localhost:5000/allproducts/${id}`;
+      fetch(url)
+          .then(res => res.json())
+          .then(data => setProduct(data));
+  }, [id])
+
+
+  const navigate = useNavigate();
+
+
+  // modal controls 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+
+  // sending product data + user info to DB 
+  const onSubmit = data => {
+    data.bookedProduct = product;
+    fetch('http://localhost:5000/bookings', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(result => {
+            if (result.insertedId) {
+                window.alert('Are you sure to book this ?')
+                reset();
+                swal("Order Confirmed!", "You will get response Soon!", "success");
+                navigate("/");
+            }
+        })
+
+};
+
+
+
+
+
+
     return (
         <>
         <Container className='py-5 '>
@@ -19,29 +79,32 @@ const ProductDetail = () => {
             </Breadcrumb>
             </div>
 
-            <Row>
+              
+                  <Row>
                 <Col md={6}>
-                    <div className='my-2'>
-                        <img src={demoImg} className="img-fluid" alt="product-img" />
+                    <div className='my-3'>
+                        <img src={product.productImage} className="img-fluid" alt="product-img" />
                     </div>
                 </Col>
                 <Col md={6}>
-                    <div className='my-2'>
+                    <div className='my-3'>
                         <Badge bg="info" pill className='p-2' >Hot Sale</Badge>
-                        <h4 className='fw-bold mt-2'>Man's High Quality T-Shirt</h4>
+                        <h4 className='fw-bold mt-2'>{product.productName}</h4>
                         <span>
                         <FaStar className='text-warning me-1'/>
                         <FaStar className='text-warning me-1'/>
                         <FaStar className='text-warning me-1'/>
                         <FaStar className='text-warning me-1'/>
                         <FaStarHalf className='text-warning me-1'/>
-                        (5 Reviews)
+                        ({product.rating}) Rating
                         </span>
-                        <div class="my-2 fs-6"><span class="text-muted small me-2 text-decoration-line-through">&#2547; 599</span><span class="fw-bold theme-cl fs-lg">&#2547; 400</span></div>
-                        <p className='text-secondary lh-lg'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+                        <div class="my-2 fs-6"><span class="text-muted small me-2 text-decoration-line-through">&#2547; {product.mutedprice}</span><span class="fw-bold theme-cl fs-lg">&#2547; {product.price}</span></div>
+                        <p className='text-secondary lh-lg'>{product.description}</p>
                         <div className='my-3'>
-                        <p className='text-muted'>Catagory : <span className='text-dark fs-6'>Man's T-shirt</span></p>
-                        <p className='text-muted'>SKU : <span className='text-dark fs-6'>DHFKJS232</span></p>
+                        <p className='text-muted'>Catagory : <span className='text-dark fs-6'>{product.catagory}</span></p>
+                        <p className='text-muted'>SKU : <span className='text-dark fs-6'>{product.code}</span></p>
+                        <p className='text-muted'>Color : <span className='text-dark fs-6'>{product.color}</span></p>
+                        <p className='text-muted'>Size : <span className='text-dark fs-6'>{product.size}</span></p>
                         </div>
 
                         <div className='d-flex align-items-center'>
@@ -54,13 +117,62 @@ const ProductDetail = () => {
                             </select>
                         </div>
                         <div className='d-flex my-4'>
-                            <Button className="btn btn-warning border-0 rounded-1 px-5 me-2 parcase-btn d-block">Buy Now <FiShoppingBag className="ms-1 product-icon" /></Button>
+                       {
+                        user ?
+                        <>
+                            <Button onClick={handleShow} className="btn btn-warning border-0 rounded-1 px-5 me-2 parcase-btn d-block">Buy Now <FiShoppingBag className="ms-1 product-icon" /></Button>
                             <Button className="btn btn-dark border-0 rounded-1 px-5 parcase-btn"> Add To Cart <FiShoppingCart className='ms-1 product-icon' /></Button>
+                        </>
+                        :
+                        <Button className="btn btn-dark border-0 rounded-1 px-5 parcase-btn"> Add To Cart <FiShoppingCart className='ms-1 product-icon' /></Button>
+                      
+                       }
+                        
                         </div>
 
                     </div>
                 </Col>
             </Row>
+
+
+
+            {/* user booking modal */}
+            <Modal
+            size="lg"
+            centered
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Add User Information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Container>
+              <Row>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                                <input className="form-control mt-3 border-0 shadow p-2" {...register("name")} value={user.displayName} />
+                                <input className="form-control mt-3 border-0 shadow p-2" {...register("email")} value={user.email} />
+                                <input className="form-control mt-3 border-0 shadow p-2" placeholder="Phone Number" type="number" {...register("phone")} required />
+                                <textarea className="form-control mt-3 border-0 shadow p-2" placeholder="Your Full Address" {...register("address")} required />
+                                {/* <input className="mt-3 btn btn-success w-50 me-1 border-0 p-2" type="submit" /> */}
+                                <Button className="btn border-0 shadow btn-light px-5 my-3 fs-6" type="submit">Confirm Order</Button> 
+                </form>
+                       
+              </Row>
+          </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          
+        </Modal.Footer>
+      </Modal>
+            {/* user booking modal */}
+              
+               
 
 
             {/* ///droduct details */}
@@ -80,12 +192,12 @@ const ProductDetail = () => {
         <Col sm={9} className="border-start border-2">
           <Tab.Content>
             <Tab.Pane eventKey="first">
-              <p className='product-text text-muted '>Lorem ipsum dolor sit amet consectetur adipisicing elit. At labore nulla id saepe repellat quae nostrum numquam non ratione, nderit cum odit natus nemo et quis adipisci est illum. Itaque nobis alias ad earum ea excepturi ullam ipsum similique, necessitatibus debitis voluptate.</p>
-              <p className='product-text text-muted '>Lorem ipsum dolor sitnimi nihil corporis veritatis reprehenderit cum odit natus nemo et quis adipisci est illum. Itaque nobis alias ad earum ea excepturi ullam ipsum similique, necessitatibus debitis voluptate.</p>
+              <p className='product-text text-muted '>{product.description}</p>
+              <p className='product-text text-muted '>{product.description}</p>
             </Tab.Pane>
             <Tab.Pane eventKey="second">
-              <p className='product-text text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam nemo temporibus alias vero nulla ex odit delectus sit dolor maxime.</p>
-              <p className='product-text text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam nemo temporibus alias vero nulla ex odit delectus sit dolor maxime.</p>
+              <p className='product-text text-muted'>{product.additionalInfo}</p>
+              <p className='product-text text-muted'>{product.additionalInfo}</p>
             </Tab.Pane>
           </Tab.Content>
         </Col>

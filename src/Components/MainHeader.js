@@ -6,16 +6,22 @@ import { Link } from 'react-router-dom';
 import auth from '../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
-import { FaBars } from "react-icons/fa";
+
 
 
 const MainHeader = () => {
 
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const logout = () => {
         signOut(auth);
-      };
+    };
+
+    
+
+    
+      
+     
 
     return (
         <>
@@ -44,8 +50,12 @@ const MainHeader = () => {
                             <Link to="/product" className='linkStyle'>Shop</Link>
                             <Link to="/product" className='linkStyle'>Catagory <FaAngleDown/></Link>
                             <Link to="/about" className='linkStyle'>About</Link>
-                            <Link to="/productDetail" className='linkStyle'>singleProduct</Link>
+                            {
+                            user ?
                             <Link to="/dashboard" className='linkStyle'>Dashboard</Link>
+                            :
+                            null
+                            }
                             
                             
                         </Nav>
@@ -62,6 +72,7 @@ const MainHeader = () => {
                                         <p className='text-success'>{user.displayName}</p>
                                     </li>
                                     : 
+                                    
                                     <li className='mx-3 fs-6'>
 									<FaShoppingCart />
 								    </li>
@@ -75,7 +86,7 @@ const MainHeader = () => {
                                 {
                                 user ? 
                                 <li>
-                                    <Link onClick={logout} className='shadow px-3 py-1 linkStyle ms-2'>Sign Out</Link> 
+                                    <Link onClick={logout} className='shadow px-3 py-1 linkStyle ms-2'>Log Out</Link> 
                                 </li>
                                   :  
                                 <li>    
