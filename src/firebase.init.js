@@ -7,12 +7,12 @@ import {getAuth} from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyB-iCn65SnQxLsNk96oqPIH_AE4HCH1e2A",
-    authDomain: "orisaz-ecommerce.firebaseapp.com",
-    projectId: "orisaz-ecommerce",
-    storageBucket: "orisaz-ecommerce.appspot.com",
-    messagingSenderId: "405278438859",
-    appId: "1:405278438859:web:9b8f030f209f5ac792724e"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
 };
 
 // Initialize Firebase
