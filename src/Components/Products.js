@@ -11,7 +11,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:5000/allproducts')
+        fetch('https://backend.orisaz.com/allproducts')
         .then(res => res.json())
         .then(data => setProducts(data))
     }, [])

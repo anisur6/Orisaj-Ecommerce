@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -41,16 +40,31 @@ const AddReview = () => {
     
      const onSubmit = data => {
         data.ratings = rating;
-         axios.post('http://localhost:5000/ratings', data)
-             .then(res => {
-                 if (res.data.insertedId) {
-                     window.alert('Are you Sure to Add Review ?');
-                     reset();
-                     swal("SuccessFul!", "You Review will added soon!", "success");
-                    navigate("/");
-                 }
-             })
+
+
+        fetch('https://backend.orisaz.com/ratings', {
+            method: 'POST',
+            headers: {
+               'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+         })
+            .then(res => res.json())
+            .then(data => {
+    
+               if (data.acknowledged) {
+                  window.alert('Are you Sure to Add Review ?');
+                  reset();
+                  swal("SuccessFul!", "You Review will added soon!", "success");
+                  navigate("/");
+               }
+            })
      };
+
+
+
+    
+
 
     return (
         <>
@@ -62,7 +76,7 @@ const AddReview = () => {
         <input className='form-control my-4 p-3 border-0 shadow' type="email" placeholder='Your Email' {...register("email")} value={User.email} />
         <textarea className="p-2 form-control my-4 p-3 border-0 shadow" placeholder='Add detail' {...register("description")} />
         <span className='d-block my-3'>
-        <Rating onClick={handleRating} tooltip={tooltip} allowHalfIcon showTooltip  ratingValue={rating} />
+        <Rating onClick={handleRating} tooltipArray={tooltip} allowHalfIcon showTooltip   ratingValue={rating} />
         </span>
         <Button className="btn border-0 shadow btn-light px-5 my-2 fs-5" type="submit">Add Review</Button> 
         </form>

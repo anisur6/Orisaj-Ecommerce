@@ -9,7 +9,7 @@ const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/allproducts', data)
+        axios.post('https://backend.orisaz.com/allproducts', data)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

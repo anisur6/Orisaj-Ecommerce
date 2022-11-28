@@ -21,7 +21,7 @@ const ProductDetail = () => {
 
 
   useEffect(() => {
-    const url = `http://localhost:5000/allproducts/${id}`;
+    const url = `https://backend.orisaz.com/allproducts/${id}`;
       fetch(url)
           .then(res => res.json())
           .then(data => setProduct(data));
@@ -42,7 +42,7 @@ const ProductDetail = () => {
   // sending product data + user info to DB 
   const onSubmit = data => {
     data.bookedProduct = product;
-    fetch('http://localhost:5000/bookings', {
+    fetch('https://backend.orisaz.com/bookings', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

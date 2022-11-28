@@ -57,7 +57,7 @@ const Register = () => {
    
 
     const onSubmit = async data => {
-        console.log(data);
+        // console.log(data);
         if(data.password !== data.password2){
             return alert('password not matched');   
         }
@@ -65,8 +65,7 @@ const Register = () => {
         await updateProfile({ displayName : data.name});
 
         //send user to the database
-        saveUser(data.email, data.name, 'POST');
-
+        saveUser(data.email, data.name, data.phone, 'POST');
 
         swal({
             title: "registration SuccessFull",
@@ -79,9 +78,9 @@ const Register = () => {
 
 
     // saving user information 
-    const saveUser = (email, displayName, method) => {
-        const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+    const saveUser = (email, displayName, phone, method) => {
+        const user = { email, displayName, phone };
+        fetch('https://backend.orisaz.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -115,6 +114,7 @@ const Register = () => {
                     <input {...register("name", { required: true, maxLength: 15 })} className='form-control border-0 shadow rounded-0 p-2 my-4' type="text"  placeholder="Enter Name" required/>
                     {errors.email?.type === 'required' && "Email is required"}
                     <input  {...register("email", { required: true, maxLength: 20 })} className='form-control border-0 shadow rounded-0 p-2 my-4' type="email"  placeholder="Enter Email" required/>
+                    <input  {...register("phone", { required: true, maxLength: 20 })} className='form-control border-0 shadow rounded-0 p-2 my-4' type="number"  placeholder="Enter Phone Number" required/>
                     {errors.password?.type === 'required' && "use more than 6"}
                     <input name="password" {...register("password", { required: true, minLength: 5 })} className='form-control border-0 shadow rounded-0 p-2 my-4' type="password"  placeholder="Enter Password" required/>
                     <input name="password2" {...register("password2", { required: true, minLength: 5 })} className='form-control border-0 shadow rounded-0 p-2 my-4' type="password"  placeholder="Confirm Password" required/>

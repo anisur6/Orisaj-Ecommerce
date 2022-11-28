@@ -12,7 +12,7 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/bookings?email=${user.email}`
+        const url = `https://backend.orisaz.com/bookings?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));

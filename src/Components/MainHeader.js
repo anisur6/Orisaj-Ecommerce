@@ -5,23 +5,13 @@ import {FaAngleDown , FaSearch, FaRegUserCircle, FaShoppingCart} from 'react-ico
 import { Link } from 'react-router-dom';
 import auth from '../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { signOut } from 'firebase/auth';
+
 
 
 
 const MainHeader = () => {
-
     const [user] = useAuthState(auth);
 
-    const logout = () => {
-        signOut(auth);
-    };
-
-    
-
-    
-      
-     
 
     return (
         <>
@@ -66,17 +56,11 @@ const MainHeader = () => {
 								</li>
                                
 
-                                {
-                                    user ?
-                                    <li className='mx-3'>
-                                        <p className='text-success'>{user.displayName}</p>
-                                    </li>
-                                    : 
-                                    
-                                    <li className='mx-3 fs-6'>
+                               
+                                <li className='mx-3 fs-6'>
 									<FaShoppingCart />
-								    </li>
-                                }
+								</li>
+                              
 
 								<li className='mx-3 fs-6 d-none d-sm-none d-md-block'>
 									<FaRegUserCircle />
@@ -85,8 +69,8 @@ const MainHeader = () => {
 								
                                 {
                                 user ? 
-                                <li>
-                                    <Link onClick={logout} className='shadow px-3 py-1 linkStyle ms-2'>Log Out</Link> 
+                                <li className='mx-3'>
+                                <p className='text-success fs-6 mt-1'>Welcome <span className='text-success fw-bold'>{user.displayName}</span></p>
                                 </li>
                                   :  
                                 <li>    

@@ -2,28 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { AiFillDelete } from "react-icons/ai";
 import { Container, Row, Table } from 'react-bootstrap';
 import swal from 'sweetalert';
+import Heading from './Heading';
 
 const AllOrder = () => {
 
     const [allOrder, setAllOrder] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch('https://backend.orisaz.com/bookings')
             .then(res => res.json())
             .then(data => setAllOrder(data));
     }, []);
 
     const handleDeleteOrder = id => {
-        const url = `http://localhost:5000/bookings/${id}`
+        const url = `https://backend.orisaz.com/bookings/${id}`
         fetch(url, {
             method : 'DELETE'
         })
         .then(res => res.json())
         .then(data => {
             if(data.deletedCount > 0){
-                swal("User Order Deleted!", "success");
                 const remainingOrder = allOrder.filter(order => order._id !== id)
                 setAllOrder(remainingOrder);
+                swal("User Order Deleted!", "success");
             }
         })
     }
@@ -32,6 +33,9 @@ const AllOrder = () => {
     return (
         <>
          <Container>
+                <div className='text-center pb-2'>
+                    <Heading mainText="Manage All Customer Order" />
+                </div>
             <Row>
             <Table striped bordered hover responsive>
                 <thead>

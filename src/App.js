@@ -17,6 +17,10 @@ import MyOrder from './Components/MyOrder';
 import AllOrder from './Components/AllOrder';
 import UserProfile from './Components/UserProfile';
 import AddProduct from './Components/AddProduct';
+import ManageReview from './Components/ManageReview';
+import Payment from './Components/Payment';
+import Ruser from './Components/Ruser';
+import DUproduct from './Components/DUproduct';
 
 
 
@@ -45,7 +49,11 @@ function App() {
           <Route path="myorder" element={<MyOrder/>} />
           <Route path="allorder" element={<AllOrder/>} />
           <Route path="profile" element={<UserProfile/>} />
+          <Route path="payment" element={<Payment/>} />
+          <Route path="ruser" element={<Ruser/>} />
           <Route path="addproduct" element={<AddProduct/>} />
+          <Route path="duproduct" element={<DUproduct/>} />
+          <Route path="manageReview" element={<ManageReview/>} />
 
         </Route>
 
